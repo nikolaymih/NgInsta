@@ -1,1 +1,41 @@
-<p>header works!</p>
+<header id="site-header">
+    <nav class="navbar">
+        <section class="navbar-left">
+            <div class="left-logged">
+
+                <!-- {isAuthenticated
+                    ? <Link class="button" to="/">photogram</Link>
+                    : null
+                } -->
+                <a href="/">NgInsta</a>
+            </div>
+        </section>
+
+        <section class="navbar-rightL">
+            <div class="right-logged">
+                <!-- {isAuthenticated
+                    ? <Link to="/account/profile">Hello, {username}</Link>
+                    : null
+                } -->
+                <a href="/account/profile">Hello username</a>
+
+            </div>
+        </section>
+
+        <section class="navbar-right">
+            <div class="annonymous">
+                <!-- {!isAuthenticated
+                    ? 
+                    <>
+                        <Link class="button" to='/auth/login'>Login</Link>
+                        <Link class="button" to='/auth/register'>Register</Link>
+                    </>
+                    : null
+                } -->
+                <a href="/auth/login">Login</a>
+                <a href="/auth/register">Register</a>
+            </div>
+        </section>
+    </nav>
+    <div class="spacer"></div>
+</header>

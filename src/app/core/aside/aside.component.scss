@@ -1,0 +1,23 @@
+.PersonalSettings {
+    flex-direction: column;
+    flex: 1;
+}
+
+.fixedPosition {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    position: fixed;
+    /* max-width: 100%; */
+}
+
+.fixedPosition h2 a{
+    padding-left: 10px;
+    padding-right: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.fixedPosition h1 a:hover {
+    background-color:grey;
+}
