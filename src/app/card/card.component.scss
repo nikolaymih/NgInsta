@@ -1,0 +1,38 @@
+.CardPhotos {
+    flex: 1;
+}
+
+.sectionWrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 10px 
+}
+
+.individualSectionWrapper {
+    /* padding: 20px 20px 0px 20px; */
+    max-width: 500px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    border-style: double;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.actualImg {
+    text-align: center;
+    width: 400px;
+    height: 400px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    padding: 7px;
+}
+
+.descriptionImg {
+    text-align: center;
+}
+
+.imgLikes {
+    text-align: center;
+}
+
