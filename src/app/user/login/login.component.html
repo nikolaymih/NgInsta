@@ -1,1 +1,42 @@
-<p>login works!</p>
+<section class="authLoginWrapper">
+    <div class="authLoginLeftAlignment"></div>
+    <div class="authLoginForm">
+        <div class="formsMenu">
+            <section class="createPicture">
+                <form onSubmit={this.onLoginSubmit.bind(this)}>
+                    <fieldset class="orderFieldsetByColumn">
+                        <legend>photogram</legend>
+                        <div class="formHeaderCreateImage">
+                        <h1>Please type your credentials</h1>
+                        </div>
+                        <!-- <InputError>{this.state.errorMessage}</InputError> -->
+                        <p class="fieldCreatePet">
+                            <label htmlFor="email">
+                                <h4>Email</h4>
+                            </label>
+                            <span class="inputChangePassword">
+                                <input type="email" name="email" id="email" placeholder="Type your email" />
+                                <span class="actions"></span>
+                            </span>
+                        </p>
+                        <p class="fieldCreatePet">
+                            <label htmlFor="password">
+                                <h4>Password</h4>
+                            </label>
+                            <span class="inputChangePassword">
+                                <input type="password" name="password" id="password" placeholder="Type your password" />
+                                <span class="actions"></span>
+                            </span>
+                        </p>
+
+                        <hr />
+                        <span class="createImgButton">
+                            <input class="button submit" type="submit" value="Login" />
+                        </span>
+                    </fieldset>
+                </form>
+            </section>
+        </div>
+    </div>
+    <div class="authLoginRightAlignment"></div>
+</section>

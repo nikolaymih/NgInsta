@@ -1,1 +1,55 @@
-<p>register works!</p>
+<section className="authRegisterWrapper">
+    <div className="authRegisterLeftAlignment"></div>
+    <div className="authRegisterForm">
+        <div className="formsMenu">
+            <section className="createPicture">
+                <form onSubmit={onClickRegisterForm}>
+                    <fieldset className="orderFieldsetByColumn">
+                        <legend>photogram</legend>
+                        <div className="formHeaderCreateImage">
+                            <h2>Please register your new account</h2>
+                        </div>
+                        <!-- <InputError>{errorMessage}</InputError> -->
+                        <p className="fieldCreatePet">
+                            <label htmlFor="email">Email</label>
+                            <span className="inputChangePassword">
+                                <input type="email" name="email" id="email" placeholder="Type your email" />
+                                <span className="actions"></span>
+                            </span>
+                        </p>
+
+                        <p className="fieldCreatePet">
+                            <label htmlFor="username">Username</label>
+                            <span className="inputChangePassword">
+                                <input type="text" name="username" id="username" placeholder="Type your username" />
+                                <span className="actions"></span>
+                            </span>
+                        </p>
+
+                        <p className="fieldCreatePet">
+                            <label htmlFor="password">Password</label>
+                            <span className="inputChangePassword">
+                                <input type="password" name="password" id="password" placeholder="Type your password" />
+                                <span className="actions"></span>
+                            </span>
+                        </p>
+
+                        <p className="fieldCreatePet">
+                            <label htmlFor="rePassword">Repeat password</label>
+                            <span className="inputChangePassword">
+                                <input type="password" name="rePassword" id="rePassword" placeholder="Confirm your password" />
+                                <span className="actions"></span>
+                            </span>
+                        </p>
+
+                        <hr />
+                        <span className="createImgButton">
+                            <input className="button submit" type="submit" value="Register" />
+                        </span>
+                    </fieldset>
+                </form>
+            </section>
+        </div>
+    </div>
+    <div className="authRegisterRightAlignment"></div>
+</section>
