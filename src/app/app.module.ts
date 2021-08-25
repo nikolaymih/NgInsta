@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { CardComponent } from './card/card.component';
 import { UserModule } from './user/user.module';
+import { PicturesModule } from './pictures/pictures.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { UserModule } from './user/user.module';
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    UserModule
+    UserModule,
+    PicturesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

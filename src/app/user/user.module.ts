@@ -4,18 +4,22 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UserRoutingModule } from './user-routing.module';
-import { AsideComponent } from '../core/aside/aside.component';
+import { CoreModule } from '../core/core.module';
+import { DetailsComponent } from './details/details.component';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
-    AsideComponent
+    DetailsComponent,
+    EditComponent,
   ],
   imports: [
     CommonModule,
-    UserRoutingModule
+    UserRoutingModule,
+    CoreModule
   ]
 })
 export class UserModule { }
