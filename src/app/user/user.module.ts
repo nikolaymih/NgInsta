@@ -8,6 +8,7 @@ import { CoreModule } from '../core/core.module';
 import { DetailsComponent } from './details/details.component';
 import { EditComponent } from './edit/edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UserService } from './user.service';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CoreModule,
     FormsModule,
     ReactiveFormsModule
+  ],
+  providers: [
+    UserService
   ]
 })
 export class UserModule { }

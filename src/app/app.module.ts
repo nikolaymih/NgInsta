@@ -7,6 +7,8 @@ import { CoreModule } from './core/core.module';
 import { CardComponent } from './card/card.component';
 import { UserModule } from './user/user.module';
 import { PicturesModule } from './pictures/pictures.module';
+import { SharedModule } from './shared/shared.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { PicturesModule } from './pictures/pictures.module';
     CoreModule,
     UserModule,
     PicturesModule,
+    SharedModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [],

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { sameValueAsFactory } from 'src/app/shared/validators';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-register',
@@ -11,7 +13,11 @@ export class RegisterComponent {
 
   form: FormGroup
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private userService: UserService,
+    private router: Router
+    ) {
     this.form = this.fb.group({
       username: ['', [Validators.required, Validators.minLength(4)]],
       email: ['', [Validators.required, Validators.email]],
@@ -22,8 +28,16 @@ export class RegisterComponent {
 
   register(): void {
     if (this.form.invalid) { return; }
-    console.log(this.form.value);
-    
+    this.userService.register(this.form.value).subscribe({
+      next: (data) => {
+        console.log(data);
+        
+        this.router.navigate(['/']);
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
   }
 
 }
