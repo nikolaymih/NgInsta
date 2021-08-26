@@ -3,7 +3,8 @@
     <div class="authRegisterForm">
         <div class="formsMenu">
             <section class="createPicture">
-                <form onSubmit={onClickRegisterForm}>
+
+                <form [formGroup]="form" action="" method="POST" (ngSubmit)="register()">
                     <fieldset class="orderFieldsetByColumn">
                         <legend>photogram</legend>
                         <div class="formHeaderCreateImage">
@@ -13,38 +14,78 @@
                         <p class="fieldCreatePet">
                             <label htmlFor="email">Email</label>
                             <span class="inputChangePassword">
-                                <input type="email" name="email" id="email" placeholder="Type your email" />
+                                <input type="email" name="email" id="email" placeholder="Type your email" 
+                                formControlName="email" />
                                 <span class="actions"></span>
                             </span>
                         </p>
+
+                        <ng-container *ngIf="form.get('email')?.touched">
+                            <span class="error" *ngIf="form.get('email')?.errors?.required" class="error">
+                                Email is required
+                            </span>
+                            <span class="error" *ngIf="form.get('email')?.errors?.email" class="error">
+                                Email is not valid
+                            </span>
+                        </ng-container>
 
                         <p class="fieldCreatePet">
                             <label htmlFor="username">Username</label>
                             <span class="inputChangePassword">
-                                <input type="text" name="username" id="username" placeholder="Type your username" />
+                                <input type="text" name="username" id="username" placeholder="Type your username" 
+                                formControlName="username" />
                                 <span class="actions"></span>
                             </span>
                         </p>
+
+                        <ng-container *ngIf="form.get('username')?.touched">
+                            <span class="error" *ngIf="form.get('username')?.errors?.required" class="error">
+                                Username is required
+                            </span>
+                            <span class="error" *ngIf="form.get('username')?.errors?.minlength" class="error">
+                                Username is not valid
+                            </span>
+                        </ng-container>
 
                         <p class="fieldCreatePet">
                             <label htmlFor="password">Password</label>
                             <span class="inputChangePassword">
-                                <input type="password" name="password" id="password" placeholder="Type your password" />
+                                <input type="password" name="password" id="password" placeholder="Type your password" 
+                                formControlName="password"/>
                                 <span class="actions"></span>
                             </span>
                         </p>
+
+                        <ng-container *ngIf="form.get('password')?.touched">
+                            <span class="error" *ngIf="form.get('password')?.errors?.required" class="error">
+                                Password is required
+                            </span>
+                            <span class="error" *ngIf="form.get('password')?.errors?.minlength" class="error">
+                                Password is not long enough
+                            </span>
+                        </ng-container>
 
                         <p class="fieldCreatePet">
                             <label htmlFor="rePassword">Repeat password</label>
                             <span class="inputChangePassword">
-                                <input type="password" name="rePassword" id="rePassword" placeholder="Confirm your password" />
+                                <input type="password" name="rePassword" id="rePassword" placeholder="Confirm your password"
+                                formControlName="rePassword" />
                                 <span class="actions"></span>
                             </span>
                         </p>
 
+                        <ng-container *ngIf="form.get('rePassword')?.touched">
+                            <span class="error" *ngIf="form.get('rePassword')?.errors?.required" class="error">
+                                Repeat password is required
+                            </span>
+                            <span class="error" *ngIf="form.get('rePassword')?.errors?.sameValue" class="error">
+                                Repeat password does not match password
+                            </span>
+                        </ng-container>
+
                         <hr />
                         <span class="createImgButton">
-                            <input class="button submit" type="submit" value="Register" />
+                            <button>Submit</button>
                         </span>
                     </fieldset>
                 </form>

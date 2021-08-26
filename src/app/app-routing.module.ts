@@ -4,7 +4,10 @@ import { CardComponent } from './card/card.component';
 import { HomeComponent } from './pictures/home/home.component';
 
 const routes: Routes = [
-  
+  // {
+  //   path: '**',
+  //   component: CardComponent
+  // }
 ];
 
 @NgModule({

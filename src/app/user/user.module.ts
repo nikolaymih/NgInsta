@@ -7,6 +7,7 @@ import { UserRoutingModule } from './user-routing.module';
 import { CoreModule } from '../core/core.module';
 import { DetailsComponent } from './details/details.component';
 import { EditComponent } from './edit/edit.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,9 @@ import { EditComponent } from './edit/edit.component';
   imports: [
     CommonModule,
     UserRoutingModule,
-    CoreModule
+    CoreModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class UserModule { }

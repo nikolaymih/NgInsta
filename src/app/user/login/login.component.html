@@ -3,11 +3,13 @@
     <div class="authLoginForm">
         <div class="formsMenu">
             <section class="createPicture">
-                <form onSubmit={this.onLoginSubmit.bind(this)}>
+                {{form.value | json}}
+                <form #form="ngForm" action="" method="POST" (ngSubmit)="login(form)">
+
                     <fieldset class="orderFieldsetByColumn">
                         <legend>photogram</legend>
                         <div class="formHeaderCreateImage">
-                        <h1>Please type your credentials</h1>
+                            <h1>Please type your credentials</h1>
                         </div>
                         <!-- <InputError>{this.state.errorMessage}</InputError> -->
                         <p class="fieldCreatePet">
@@ -15,23 +17,44 @@
                                 <h4>Email</h4>
                             </label>
                             <span class="inputChangePassword">
-                                <input type="email" name="email" id="email" placeholder="Type your email" />
+                                <input #emailInput="ngModel" ngModel type="email" name="email" id="email"
+                                    placeholder="Type your email" required email />
                                 <span class="actions"></span>
                             </span>
+
+                            <ng-container *ngIf="emailInput.touched">
+                                <span *ngIf="emailInput.errors?.required" class="error">
+                                    Email is required
+                                </span>
+                                <span *ngIf="emailInput.errors?.email" class="error">
+                                    Email is not valid
+                                </span>
+                            </ng-container>
+
                         </p>
                         <p class="fieldCreatePet">
                             <label htmlFor="password">
                                 <h4>Password</h4>
                             </label>
                             <span class="inputChangePassword">
-                                <input type="password" name="password" id="password" placeholder="Type your password" />
-                                <span class="actions"></span>
+                                <input #passwordInput="ngModel" ngModel type="password" name="password" id="password" placeholder="Type your password" 
+                                [minlength]="6" required/>
+                                <!-- <span class="actions"></span> -->
                             </span>
                         </p>
 
+                        <ng-container *ngIf="emailInput.touched">
+                            <span *ngIf="passwordInput.errors?.required" class="error">
+                                Password is required
+                            </span>
+                            <span *ngIf="passwordInput.errors?.minlength" class="error">
+                                Password is not long enough
+                            </span>
+                        </ng-container>
+
                         <hr />
                         <span class="createImgButton">
-                            <input class="button submit" type="submit" value="Login" />
+                            <button>Login</button>
                         </span>
                     </fieldset>
                 </form>
