@@ -1,15 +1,25 @@
 import { Component, OnInit } from '@angular/core';
+import { PicturesService } from '../pictures.service';
+import { IPicture } from '../../shared/interfaces/IPicture';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
+  images: IPicture[] | undefined;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private picturesService: PicturesService) {
+    this.fetchImages();
   }
 
+  fetchImages() : void {
+    let user = JSON.parse(localStorage.getItem("user")!);
+    
+    this.images = undefined;
+    this.picturesService.loadPosts().subscribe(images => {
+      this.images = images 
+    })
+  }
 }

@@ -5,7 +5,6 @@ import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UserRoutingModule } from './user-routing.module';
 import { CoreModule } from '../core/core.module';
-import { DetailsComponent } from './details/details.component';
 import { EditComponent } from './edit/edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from './user.service';
@@ -15,7 +14,6 @@ import { UserService } from './user.service';
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
-    DetailsComponent,
     EditComponent,
   ],
   imports: [

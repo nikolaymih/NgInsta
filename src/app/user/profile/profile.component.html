@@ -1,26 +1,28 @@
-<div class="wrappingAccountProfile">
-    <div class="flexOrderPersonalSettingsAndAccountSettings">
-        <h1>My Profile</h1>
-        <span class="fitImgWithAccountInfo">
-            <img class="resizeImg"
-                src="https://scontent.fsof8-1.fna.fbcdn.net/v/t1.6435-9/158900682_3954884447866796_2198572172287358462_n.jpg?_nc_cat=100&ccb=1-3&_nc_sid=730e14&_nc_ohc=URFAZ_aHA94AX9A8orU&_nc_ht=scontent.fsof8-1.fna&oh=a6df53d3f0e20315cb0de7c70e7efc42&oe=608C4719"
-                alt="Nothing to display" />
-            <span class="setCertainPointsForNewLines">
-                <button>Folow</button>
-                <h2 class="break">username</h2>
-                <h3 class="break">Posts: 24</h3>
-                <h3>Subscribers: 10</h3>
+<div class="theme-title" *ngIf="images">
+    <div class="wrappingAccountProfile">
+        <div class="flexOrderPersonalSettingsAndAccountSettings">
+            <h1>My Profile</h1>
+            <span class="fitImgWithAccountInfo">
+                <img class="resizeImg"
+                    src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/e1fd5442419075.57cc3f77ed8c7.png"
+                    alt="Nothing to display" />
+                <span class="setCertainPointsForNewLines">
+                    <button>Folow</button>
+                    <h2 class="break">username</h2>
+                    <h3 class="break">Posts: 24</h3>
+                    <h3>Subscribers: 10</h3>
+                </span>
             </span>
-        </span>
-        <hr class="borderLine" />
-        <div class="ordersingleCollectionImgs">
-            <div>
-                <!-- {
-                    image.map((x) => {
-                        return <Link to={`/image/details/${x._id}`}><img class="singleCollectionImg" key={x._id} src={x.image} alt="Nothing to display" /></Link>
-                    }).reverse()
-                } -->
+            <hr class="borderLine" />
+            <div class="ordersingleCollectionImgs">
+                <div>
+                    <div *ngFor="let image of images" class="theme-container">
+                        <a ><img class="singleCollectionImg" key={image._id} src={image.image}
+                            alt="Nothing to display" /></a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+<div *ngIf="!images">Loading..</div>
