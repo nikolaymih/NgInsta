@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
@@ -21,5 +21,17 @@ export class PicturesService {
     return this.http.get<IPicture[]>(`${apiUrl}img`).pipe(
       tap(images => this.images = images)
     )
+  }
+
+  loadSpecifiedPicture(imageId: string) {
+    const token = localStorage.getItem('token');
+
+    let headers = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+    };
+
+    return this.http.post<any>(`${apiUrl}img/detailedImage`, imageId, headers)
   }
 }

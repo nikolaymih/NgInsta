@@ -8,18 +8,17 @@
                     alt="Nothing to display" />
                 <span class="setCertainPointsForNewLines">
                     <button>Folow</button>
-                    <h2 class="break">username</h2>
-                    <h3 class="break">Posts: 24</h3>
-                    <h3>Subscribers: 10</h3>
+                    <h2 class="break">{{user!.username}}</h2>
+                    <h3 class="break">Posts: {{images.length}}</h3>
+                    <h3>Subscribers: 150</h3>
                 </span>
             </span>
             <hr class="borderLine" />
             <div class="ordersingleCollectionImgs">
-                <div>
-                    <div *ngFor="let image of images" class="theme-container">
-                        <a ><img class="singleCollectionImg" key={image._id} src={image.image}
-                            alt="Nothing to display" /></a>
-                    </div>
+                <div *ngFor="let image of images">
+                    <a routerLink="/details/{{image._id}}`">
+                        <img class="singleCollectionImg" src={{image.image}} alt="Nothing to display" />
+                    </a>
                 </div>
             </div>
         </div>

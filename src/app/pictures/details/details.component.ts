@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { PicturesService } from '../pictures.service';
 
 @Component({
   selector: 'app-details',
@@ -7,9 +10,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailsComponent implements OnInit {
 
-  constructor() { }
+  private routeSub!: Subscription;
+  imageId: string | undefined;
 
-  ngOnInit(): void {
+  constructor(
+    private route: ActivatedRoute,
+    private picturesService: PicturesService
+  ) {
+    this.loadSpecifiedPicture();
   }
 
+  ngOnInit() {
+    this.routeSub = this.route.params.subscribe(params => {
+      this.imageId = params['id'];
+    });
+  }
+
+  ngOnDestroy() {
+    this.routeSub.unsubscribe();
+  }
+
+  loadSpecifiedPicture(): void {
+    this.picturesService.loadSpecifiedPicture(this.imageId!).subscribe(image => {
+      console.log(image);
+    })
+  }
 }

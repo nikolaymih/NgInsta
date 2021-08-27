@@ -15,8 +15,6 @@ export class HomeComponent {
   }
 
   fetchImages() : void {
-    let user = JSON.parse(localStorage.getItem("user")!);
-    
     this.images = undefined;
     this.picturesService.loadPosts().subscribe(images => {
       this.images = images 
