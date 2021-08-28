@@ -7,7 +7,8 @@
                     ? <Link class="button" to="/">photogram</Link>
                     : null
                 } -->
-                <a routerLink="/">NgInsta</a>
+                <a *ngIf="isLogged" routerLink="/">NgInsta</a>
+                <a *ngIf="!isLogged" routerLink="/home">NgInsta</a>
             </div>
         </section>
 
