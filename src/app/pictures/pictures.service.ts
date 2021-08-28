@@ -30,6 +30,18 @@ export class PicturesService {
     )
   }
 
+  loadMorePosts(seenIds: IPicture[]) {
+    const token = localStorage.getItem('token');
+
+    let headers = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+    };
+
+    return this.http.post<any>(`${apiUrl}img/loadResources`, { seenIds }, headers)
+  }
+
   loadSpecifiedPicture(id: string) {
     const token = localStorage.getItem('token');
 

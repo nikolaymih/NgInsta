@@ -14,7 +14,7 @@ const apiUrl = environment.apiUrl;
 export class UserService {
 
   user: string | undefined;
-  token = localStorage.getItem('token')
+  
 
   get isLogged(): boolean {
     return !!this.user;
@@ -35,11 +35,11 @@ export class UserService {
    }
 
   profile() {
-    console.log(this.token);
+    let token = localStorage.getItem('token')
 
     let headers = {
       headers: new HttpHeaders({
-        'Authorization': `Bearer ${this.token}`
+        'Authorization': `Bearer ${token}`
       })
     };
 

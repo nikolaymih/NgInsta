@@ -21,8 +21,11 @@ export class HomeComponent {
       this.images = images 
     })
   }
-  
-  loadTenMoreImages() {
 
+  loadMoreImages() {
+    this.picturesService.loadMorePosts(this.images!).subscribe(images => {
+      console.log(images);
+      this.images = images 
+    })
   }
 }

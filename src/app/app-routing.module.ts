@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CardComponent } from './card/card.component';
-import { HomeComponent } from './pictures/home/home.component';
 
 const routes: Routes = [
-  // {
-  //   path: '**',
-  //   component: CardComponent
-  // }
+  {
+    path: '404',
+    component: CardComponent
+  },
+  {
+    path: '', 
+    component: CardComponent
+  }
 ];
 
 @NgModule({

@@ -14,6 +14,6 @@
             </div>
         </section>
     </div>
-    <div class="loadImages" onclick={loadTenMoreImages}>Click to load more resources...</div>
+    <div class="loadImages" (click)=loadMoreImages()>Click to load more resources...</div>
 </div>
 <div *ngIf="!images">Loading..</div>
