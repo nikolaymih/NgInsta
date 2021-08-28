@@ -1,22 +1,26 @@
-<section class="detailsWrapper">
+<div class="theme-title" *ngIf="image">
+    <section class="detailsWrapper">
+        <section class="detailsMiddlePositioned">
+            <span>
+                <div>
+                    <h3>{{image.username}}</h3>
+                </div>
+            </span>
+            <img class="detailsImg" src="{{image.image}}" alt="No pic for now" />
+            <div>
+                <h3>Description: {{image.description}}</h3>
+            </div>
+            <h3>Likes: 20</h3>
 
-    <section class="detailsMiddlePositioned">
-        <span>
-            <div><h3>Nikolay</h3></div>
-        </span>
-        <img class="detailsImg" src="" alt="No pic for now" />
-        <div><h3>Description: test</h3></div>
-        <h3 >Likes: 20</h3>
-
-        <!-- {canDelete
+            <!-- {canDelete
             ? <>
                 <Link to={`/image/edit/${image._id}`} style={{ textDecoration: 'none' }}><h3 >Edit</h3></Link>
                 <Link style={{ textDecoration: 'none' }} onClick={onDeletehandler}><h3>Delete</h3></Link>
             </>
             : null
         } -->
+        </section>
+        <section class="detailsEmptySection"></section>
     </section>
-
-    <section class="detailsEmptySection" ></section>
-
-</section>
+</div>
+<div *ngIf="!image">Loading..</div>

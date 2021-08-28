@@ -17,13 +17,14 @@
                     ? <Link to="/account/profile">Hello, {username}</Link>
                     : null
                 } -->
-                <a routerLink="/profile">Hello username</a>
+                <a *ngIf="isLogged" routerLink="/profile">Hello, {{username}}</a>
+                <a *ngIf="isLogged" (click)="logout()">Logout</a>
 
             </div>
         </section>
 
         <section class="navbar-right">
-            <div class="annonymous">
+            <div class="annonymous" *ngIf="!isLogged">
                 <!-- {!isAuthenticated
                     ? 
                     <>

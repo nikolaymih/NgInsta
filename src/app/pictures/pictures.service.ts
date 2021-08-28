@@ -18,12 +18,19 @@ export class PicturesService {
   ) { }
 
   loadPosts() {
-    return this.http.get<IPicture[]>(`${apiUrl}img`).pipe(
+    const token = localStorage.getItem('token');
+
+    let headers = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+    };
+    return this.http.get<IPicture[]>(`${apiUrl}img`, headers).pipe(
       tap(images => this.images = images)
     )
   }
 
-  loadSpecifiedPicture(imageId: string) {
+  loadSpecifiedPicture(id: string) {
     const token = localStorage.getItem('token');
 
     let headers = {
@@ -32,6 +39,17 @@ export class PicturesService {
       })
     };
 
-    return this.http.post<any>(`${apiUrl}img/detailedImage`, imageId, headers)
+    return this.http.post<any>(`${apiUrl}img/detailedImage`, { id }, headers)
+  }
+
+  uploadImage(data: { image: string; description: string; id: string }) {
+    const token = localStorage.getItem('token');
+
+    let headers = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+    };
+    return this.http.post<any>(`${apiUrl}img/createImg`, data, headers)
   }
 }

@@ -17,7 +17,12 @@ export class HomeComponent {
   fetchImages() : void {
     this.images = undefined;
     this.picturesService.loadPosts().subscribe(images => {
+      console.log(images);
       this.images = images 
     })
+  }
+  
+  loadTenMoreImages() {
+
   }
 }

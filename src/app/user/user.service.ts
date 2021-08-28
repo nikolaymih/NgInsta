@@ -13,12 +13,26 @@ const apiUrl = environment.apiUrl;
 })
 export class UserService {
 
-  user: IUser | undefined;
+  user: string | undefined;
   token = localStorage.getItem('token')
+
+  get isLogged(): boolean {
+    return !!this.user;
+  }
 
   constructor(
     private http: HttpClient
-  ) { }
+  ) {
+    try {
+      const localStorageUser = localStorage.getItem('user' || 'ERROR');
+      console.log(localStorageUser);
+      
+      this.user = localStorageUser!;
+      
+    } catch (error) {
+      this.user = undefined;
+    }
+   }
 
   profile() {
     console.log(this.token);
@@ -35,21 +49,24 @@ export class UserService {
   login(data: { email: string; password: string }) {
     return this.http.post<IUser>(`${apiUrl}auth/login`, data, { withCredentials: true }).pipe(
       tap(user => {
-        console.log(user);
-        
         localStorage.setItem("token", user.token);
         localStorage.setItem("user", user.username);
         localStorage.setItem("id", user._id);
-        this.user = user
+        this.user = user.username;
       })
     );
   }
 
   register(data: { email: string; username: string; password: string }) {
-    return this.http.post<IUser>(`${apiUrl}auth/register`, data, { withCredentials: true }).pipe(
-      tap(user => {
-        this.user = user
-      })
-    );
+    return this.http.post<IUser>(`${apiUrl}auth/register`, data, { withCredentials: true })
+    // .pipe(
+    //   tap(user => {
+    //     this.user = user
+    //   })
+    // );
+  }
+
+  logout(): void {
+    this.user = undefined;
   }
 }

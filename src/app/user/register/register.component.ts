@@ -30,9 +30,7 @@ export class RegisterComponent {
     if (this.form.invalid) { return; }
     this.userService.register(this.form.value).subscribe({
       next: (data) => {
-        console.log(data);
-        
-        this.router.navigate(['/']);
+        this.router.navigate(['/login']);
       },
       error: (err) => {
         console.log(err);

@@ -3,7 +3,6 @@
     <div class="authLoginForm">
         <div class="formsMenu">
             <section class="createPicture">
-                {{form.value | json}}
                 <form #form="ngForm" action="" method="POST" (ngSubmit)="login(form)">
 
                     <fieldset class="orderFieldsetByColumn">

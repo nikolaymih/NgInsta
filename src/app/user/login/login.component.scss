@@ -16,5 +16,47 @@
 }
 
 .error {
-    color: red
+    color: red;
+    text-align: center;
+}
+
+.formHeaderCreateImage h1{
+    text-align: center;
+    padding-top: 20px;
+    font-size: 35px;
+}
+
+.orderFieldsetByColumn {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+
+.orderFieldsetByColumn hr {
+    width: 300px;
+    border-color: gray;
+    margin-bottom: 30px;
+}
+
+.fieldCreatePet {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+.createImgButton {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 15px;
+}
+
+.createImgButton button {
+    position: relative;
+    background-color: lightskyblue;
+    color: white;
+    border-radius: 4px;
+    border-width: 2px;
+    border-style: outset;
+    width: 200px;
 }

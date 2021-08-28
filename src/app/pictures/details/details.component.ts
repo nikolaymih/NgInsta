@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { IPicture } from 'src/app/shared/interfaces/IPicture';
 import { PicturesService } from '../pictures.service';
 
 @Component({
@@ -8,10 +9,11 @@ import { PicturesService } from '../pictures.service';
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.scss']
 })
-export class DetailsComponent implements OnInit {
+export class DetailsComponent  {
 
   private routeSub!: Subscription;
   imageId: string | undefined;
+  image: IPicture | undefined
 
   constructor(
     private route: ActivatedRoute,
@@ -20,19 +22,21 @@ export class DetailsComponent implements OnInit {
     this.loadSpecifiedPicture();
   }
 
-  ngOnInit() {
-    this.routeSub = this.route.params.subscribe(params => {
-      this.imageId = params['id'];
-    });
-  }
-
   ngOnDestroy() {
     this.routeSub.unsubscribe();
   }
 
   loadSpecifiedPicture(): void {
+    this.routeSub = this.route.params.subscribe(params => {
+      console.log(params);
+      
+      this.imageId = params['id'];
+      console.log(this.imageId);
+      
+    });
+
     this.picturesService.loadSpecifiedPicture(this.imageId!).subscribe(image => {
-      console.log(image);
+      this.image = image;
     })
   }
 }

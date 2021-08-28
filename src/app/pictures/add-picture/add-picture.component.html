@@ -3,7 +3,7 @@
 
     <div class="formsMenu">
         <section class="createPicture">
-            <form onSubmit={onSubmitAddPictureHandler}>
+            <form #form="ngForm" action="" method="POST" (ngSubmit)="uploadImage(form)">
                 <fieldset class="orderFieldsetByColumn">
                     <legend>photogram</legend>
                     <div class="formHeaderCreateImage">
@@ -13,26 +13,41 @@
                     <p class="fieldCreatePet">
                         <label htmlFor="image">Image</label>
                         <span class="inputCreatePet">
-                            <input type="text" name="image" id="image" placeholder="Image" />
+                            <input #imageInput="ngModel" ngModel type="text"  name="image" id="image" placeholder="Image"
+                                required />
                             <span class="actions"></span>
                         </span>
                     </p>
+
+                    <ng-container *ngIf="imageInput.touched">
+                        <span *ngIf="imageInput.errors?.required" class="error">
+                            Image is required
+                        </span>
+                    </ng-container>
+
                     <p class="fieldCreatePet">
                         <label htmlFor="description">Description</label>
                         <span class="input">
-                            <textarea rows="4" cols="45" type="text" name="description" id="description"
-                                placeholder="Tell us something about the picture"></textarea>
+                            <textarea #txtAreaInput="ngModel" ngModel rows="4" cols="45" type="text" name="description"
+                                id="description" placeholder="Tell us something about the picture" required>
+                            </textarea>
                             <span class="actions"></span>
                         </span>
                     </p>
+
+                    <ng-container *ngIf="txtAreaInput.touched">
+                        <span *ngIf="txtAreaInput.errors?.required" class="error">
+                            Description is required
+                        </span>
+                    </ng-container>
                     <hr />
                     <span class="createImgButton">
-                        <input class="button submit" type="submit" value="Add Image" />
+                        <button class="button submit">Add Image</button>
                     </span>
                 </fieldset>
             </form>
         </section>
     </div>
 
-    <div class="thirdPosition" ></div>
+    <div class="thirdPosition"></div>
 </div>
