@@ -15,7 +15,7 @@
             </span>
             <hr class="borderLine" />
             <div class="ordersingleCollectionImgs">
-                <div *ngFor="let image of images">
+                <div *ngFor="let image of images.slice().reverse()">
                     <a routerLink="/details/{{image._id}}">
                         <img class="singleCollectionImg" src={{image.image}} alt="Nothing to display" />
                     </a>
