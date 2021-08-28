@@ -23,6 +23,7 @@ export class HomeComponent {
   }
 
   loadMoreImages() {
+    window.scroll(0,0)
     this.picturesService.loadMorePosts(this.images!).subscribe(images => {
       console.log(images);
       this.images = images 
